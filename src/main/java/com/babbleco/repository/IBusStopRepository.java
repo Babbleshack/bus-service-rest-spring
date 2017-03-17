@@ -46,6 +46,6 @@ public interface IBusStopRepository {
 		busStop.setId(RandomStringUtils.randomAlphanumeric(6));
 		busStop.setName(RandomStringUtils.randomAlphanumeric(5));
 		busStop.setLocation(0.0, 0.0);
-		return null;
+		return busStop;
 	}
 }

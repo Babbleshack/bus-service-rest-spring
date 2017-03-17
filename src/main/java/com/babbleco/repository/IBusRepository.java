@@ -48,4 +48,9 @@ public interface IBusRepository {
 		bus.setServiceId(RandomStringUtils.randomAlphanumeric(3));
 		return bus;
 	}
+	
+	/**
+	 * @return - A list of delete bus services.
+	 */
+	List<Bus> deleteAll();
 }

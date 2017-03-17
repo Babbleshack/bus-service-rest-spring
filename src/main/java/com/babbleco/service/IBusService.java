@@ -36,5 +36,10 @@ public interface IBusService {
 	 * @return - the update bus object.
 	 */
 	Bus update(Bus bus);
+	
+	/**
+	 * @return - a list of all deleted bus services.
+	 */
+	List<Bus> deleteAll();
 
 }

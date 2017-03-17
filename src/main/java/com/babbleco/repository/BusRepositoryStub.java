@@ -1,5 +1,6 @@
 package com.babbleco.repository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,21 +14,19 @@ import com.babbleco.model.Bus;
 
 @Repository("busRepository")
 public class BusRepositoryStub implements IBusRepository {
-	
+
 	Map<String, Bus> busMap = new HashMap<>();
-	
+
 	public BusRepositoryStub() {
-		for(int i=0; i<10; i++)
-		{
+		for (int i = 0; i < 10; i++) {
 			Bus bus = IBusRepository.generateBus();
 			busMap.put(bus.getId(), bus);
 		}
 	}
-	
+
 	@Override
 	public Bus findOne(String id) {
-		if(!busMap.containsKey(id))
-		{
+		if (!busMap.containsKey(id)) {
 			return null;
 		}
 		return busMap.get(id);
@@ -40,10 +39,9 @@ public class BusRepositoryStub implements IBusRepository {
 
 	@Override
 	public String create(Bus bus) {
-		if(!StringUtils.isEmpty(bus.getId()) || busMap.containsKey(bus.getId()))
-		{
-			//bus has id and is already mapped.
-			return null; 
+		if (!StringUtils.isEmpty(bus.getId()) || busMap.containsKey(bus.getId())) {
+			// bus has id and is already mapped.
+			return null;
 		}
 		String id = RandomStringUtils.randomAlphanumeric(6);
 		bus.setId(id);
@@ -53,8 +51,7 @@ public class BusRepositoryStub implements IBusRepository {
 
 	@Override
 	public Bus delete(String id) {
-		if(StringUtils.isEmpty(id) || !busMap.containsKey(id))
-		{
+		if (StringUtils.isEmpty(id) || !busMap.containsKey(id)) {
 			// id was null or bus was not found
 			return null;
 		}
@@ -63,13 +60,19 @@ public class BusRepositoryStub implements IBusRepository {
 
 	@Override
 	public Bus update(Bus bus) {
-		if(StringUtils.isEmpty(bus.getId()) || !busMap.containsKey(bus.getId()))
-		{
+		if (StringUtils.isEmpty(bus.getId()) || !busMap.containsKey(bus.getId())) {
 			// id was null or bus was not found
 			return null;
 		}
 		busMap.put(bus.getId(), bus);
 		return bus;
+	}
+
+	@Override
+	public List<Bus> deleteAll() {
+		List<Bus> busList = new ArrayList<>(findAll());
+		busMap.clear();
+		return busList;
 	}
 
 }

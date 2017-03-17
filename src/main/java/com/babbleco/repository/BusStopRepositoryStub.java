@@ -14,9 +14,10 @@ import com.babbleco.model.BusStop;
 @Repository("busStopRepository")
 public class BusStopRepositoryStub implements IBusStopRepository {
 
-	Map<String, BusStop> busStopMap = new HashMap<>();
+	Map<String, BusStop> busStopMap;
 
 	public BusStopRepositoryStub() {
+		busStopMap = new HashMap<>();
 		for (int i = 0; i < 10; i++) {
 			BusStop stop = IBusStopRepository.generateBusStop();
 			busStopMap.put(stop.getId(), stop);

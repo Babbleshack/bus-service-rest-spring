@@ -43,4 +43,9 @@ public class BusService implements IBusService {
 		return busRepository.update(bus);
 	}
 
+	@Override
+	public List<Bus> deleteAll() {
+		return busRepository.deleteAll();
+	}
+
 }

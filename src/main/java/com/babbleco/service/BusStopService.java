@@ -19,32 +19,27 @@ public class BusStopService implements IBusStopService {
 
 	@Override
 	public List<BusStop> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return busStopRepository.findAll();
 	}
 
 	@Override
 	public BusStop findOne(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		return busStopRepository.findOne(id);
 	}
 
 	@Override
 	public String create(BusStop busStop) {
-		// TODO Auto-generated method stub
-		return null;
+		return busStopRepository.create(busStop);
 	}
 
 	@Override
 	public BusStop delete(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		return busStopRepository.delete(id);
 	}
 
 	@Override
 	public BusStop update(BusStop busStop) {
-		// TODO Auto-generated method stub
-		return null;
+		return busStopRepository.update(busStop);
 	}
 
 }

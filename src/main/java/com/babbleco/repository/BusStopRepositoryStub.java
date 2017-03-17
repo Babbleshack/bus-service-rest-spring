@@ -67,4 +67,11 @@ public class BusStopRepositoryStub implements IBusStopRepository {
 		busStopMap.put(BusStop.getId(), BusStop);
 		return BusStop;
 	}
+
+	@Override
+	public List<BusStop> deleteAll() {
+		List<BusStop> busStops = findAll();
+		busStopMap.clear();
+		return busStops;
+	}
 }

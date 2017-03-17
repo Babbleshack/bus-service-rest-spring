@@ -41,6 +41,11 @@ public interface IBusStopRepository {
 	 */
 	BusStop update(BusStop busStop);
 	
+	/**
+	 * @return a list of removed bus stops.
+	 */
+	List<BusStop> deleteAll();
+	
 	static BusStop generateBusStop() {
 		BusStop busStop = new BusStop();
 		busStop.setId(RandomStringUtils.randomAlphanumeric(6));

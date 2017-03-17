@@ -36,4 +36,9 @@ public interface IBusStopService {
 	 * @return - the update BusStop object.
 	 */
 	BusStop update(BusStop busStop);
+	
+	/**
+	 * @return a list of removed bus stops.
+	 */
+	List<BusStop> deleteAll();
 }

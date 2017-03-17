@@ -42,4 +42,9 @@ public class BusStopService implements IBusStopService {
 		return busStopRepository.update(busStop);
 	}
 
+	@Override
+	public List<BusStop> deleteAll() {
+		return busStopRepository.deleteAll();
+	}
+
 }
